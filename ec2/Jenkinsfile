@@ -13,6 +13,7 @@ pipeline {
                     cd /Users/nrkodari/git-repos/aws-labs/ec2
                     /usr/local/bin/aws sts get-caller-identity
                     export AWS_PROFILE=devops
+                    /usr/local/bin/aws sts get-caller-identity
                     /usr/local/bin/terraform init
                 '''
             }
