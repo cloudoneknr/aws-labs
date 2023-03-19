@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Terraform init') {
             steps {
-                withCredentials([aws(accessKeyVariable: 'AWS_ACCESS_Key_ID', credentilsId:'devops-role-access-setup', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY') ]){
+                withCredentials([aws(accessKeyVariable: 'AWS_ACCESS_Key_ID', credentialsId:'devops-role-access-setup', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY') ]){
                     sh '''
                         /usr/local/bin/terraform version
                         /usr/local/bin/tfenv list
