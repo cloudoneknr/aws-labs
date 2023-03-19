@@ -34,5 +34,3 @@ pipeline {
         }
     }  
 }
-
-withCredentials([aws(accessKeyVariable: 'AWS_ACCESS_Key_ID', credentilsId:'devops-role-access-setup', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY') ]) 
