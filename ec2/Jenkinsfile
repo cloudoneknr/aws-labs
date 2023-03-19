@@ -11,6 +11,7 @@ pipeline {
                     /usr/local/bin/tfenv list
                     /usr/local/bin/tfenv use 1.3.1
                     cd /Users/nrkodari/git-repos/aws-labs/ec2
+                    aws sts get-caller-identity
                     /usr/local/bin/terraform init
                 '''
             }
