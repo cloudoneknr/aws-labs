@@ -28,7 +28,7 @@ pipeline {
             steps {
                 sh '''
                     cd /Users/nrkodari/git-repos/aws-labs/networking/vpc
-                    /usr/local/bin/terraform apply -destroy -auto-approve
+                    /usr/local/bin/terraform apply -auto-approve
                 '''
             }
         }
