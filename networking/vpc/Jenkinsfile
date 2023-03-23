@@ -2,33 +2,35 @@ pipeline {
     agent any 
     environment{
         AWS_DEFAULT_REGION='us-east-1'
+        AWS_PROJECT_HOME='/Users/nrkodari/git-repos/aws-labs'
+        PATH='/usr/local/bin/'
     }
     stages {
         stage('Terraform init') {
             steps {
                 sh '''
-                    /usr/local/bin/terraform version
-                    /usr/local/bin/tfenv list
-                    /usr/local/bin/tfenv use 1.3.1
-                    cd /Users/nrkodari/git-repos/aws-labs/networking/vpc
-                    /usr/local/bin/aws sts get-caller-identity
-                    /usr/local/bin/terraform init
+                    ${PATH}/terraform version
+                    ${PATH}/tfenv list
+                    ${PATH}/tfenv use 1.3.1
+                    cd ${AWS_PROJECT_HOME}/networking/vpc
+                    ${PATH}/aws sts get-caller-identity
+                    ${PATH}/terraform init
                 '''
             }
         }
         stage('Terraform plan') {
             steps {
                 sh '''
-                    cd /Users/nrkodari/git-repos/aws-labs/networking/vpc
-                    /usr/local/bin/terraform plan
+                    cd ${AWS_PROJECT_HOME}/networking/vpc
+                    ${PATH}/terraform plan
                 '''
             }
         }
         stage('Terraform apply') {
             steps {
                 sh '''
-                    cd /Users/nrkodari/git-repos/aws-labs/networking/vpc
-                    /usr/local/bin/terraform apply -auto-approve
+                    cd ${AWS_PROJECT_HOME}/networking/vpc
+                    ${PATH}/terraform apply -auto-approve
                 '''
             }
         }

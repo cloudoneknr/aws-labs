@@ -28,9 +28,9 @@ resource "aws_route_table" "my_route_table" {
 
 # Define a subnet resource and associate it with the VPC and route table
 resource "aws_subnet" "my_subnet" {
-  vpc_id = aws_vpc.my_vpc.id
-  cidr_block = "10.0.1.0/24"
-  availability_zone = "us-east-1a"
+  vpc_id                  = aws_vpc.my_vpc.id
+  cidr_block              = "10.0.1.0/24"
+  availability_zone       = "us-east-1a"
   map_public_ip_on_launch = true
   tags = {
     Name = "my-subnet"
@@ -39,6 +39,6 @@ resource "aws_subnet" "my_subnet" {
 
 # Associate the subnet with the route table
 resource "aws_route_table_association" "my_route_table_association" {
-  subnet_id = aws_subnet.my_subnet.id
+  subnet_id      = aws_subnet.my_subnet.id
   route_table_id = aws_route_table.my_route_table.id
 }
