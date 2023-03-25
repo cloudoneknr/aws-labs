@@ -3,7 +3,7 @@ pipeline {
     parameters {
         choice(
             name: 'BUILD_TYPE',
-            choices: ['PLAN', 'APPLY', 'DESTROY'],
+            choices: ['plan', 'apply', 'destroy'],
             description: 'Select The Build Type'
         )
     } 
