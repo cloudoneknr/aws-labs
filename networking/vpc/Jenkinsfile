@@ -6,7 +6,6 @@ pipeline {
             choices: ['plan', 'apply', 'destroy'],
             description: 'Select The Build Type'
         )
-    parameters {
         choice(
             name: 'ENVIRONMENT',
             choices: ['devlepment', 'testing', 'production'],
@@ -70,7 +69,7 @@ pipeline {
                 '''
             }
         }
-                stage('Terraform destroy') {
+        stage('Terraform destroy') {
             when {
                 expression { params.BUILD_TYPE == 'destroy' }
             }
