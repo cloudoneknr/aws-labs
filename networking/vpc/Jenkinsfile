@@ -29,12 +29,12 @@ pipeline {
                     # set the desired workspace name
                     WORKSPACE_NAME=${ENVIRONMENT}
                     # check if the workspace already exists
-                    if terraform workspace list | grep -q "${WORKSPACE_NAME}"; then
+                    if ${C_PATH}/terraform workspace list | grep -q "${WORKSPACE_NAME}"; then
                     echo "Workspace ${WORKSPACE_NAME} already exists, selecting it"
-                    terraform workspace select ${WORKSPACE_NAME}
+                    ${C_PATH}/terraform workspace select ${WORKSPACE_NAME}
                     else
                     echo "Workspace ${WORKSPACE_NAME} does not exist, creating it"
-                    terraform workspace new ${WORKSPACE_NAME}
+                    ${C_PATH}terraform workspace new ${WORKSPACE_NAME}
                     fi
                 '''
             }
