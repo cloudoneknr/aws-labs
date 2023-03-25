@@ -15,7 +15,7 @@ pipeline {
     stages {
         stage('Terraform plan') {
             when {
-                exxpression { params.BUILD_TYPE == 'PLAN'}
+                expression { params.BUILD_TYPE == 'PLAN'}
             }
             steps {
                 sh '''
@@ -30,7 +30,7 @@ pipeline {
         }
         stage('Terraform apply') {
             when {
-            exxpression { params.BUILD_TYPE == 'APPLY'}
+            expression { params.BUILD_TYPE == 'APPLY'}
             }
             steps {
                 sh '''
@@ -45,7 +45,7 @@ pipeline {
         }
                 stage('Terraform destroy') {
             when {
-            exxpression { params.BUILD_TYPE == 'DESTROY'}
+            expression { params.BUILD_TYPE == 'DESTROY'}
             }
             steps {
                 sh '''
