@@ -30,7 +30,7 @@ pipeline {
         }
         stage('Terraform apply') {
             when {
-            expression { params.BUILD_TYPE == 'apply'}
+                expression { params.BUILD_TYPE == 'apply'}
             }
             steps {
                 sh '''
@@ -45,7 +45,7 @@ pipeline {
         }
                 stage('Terraform destroy') {
             when {
-            expression { params.BUILD_TYPE == 'destroy'}
+                expression { params.BUILD_TYPE == 'destroy'}
             }
             steps {
                 sh '''
