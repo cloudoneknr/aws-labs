@@ -4,7 +4,7 @@ pipeline {
         choice(
             name: 'BUILD_TYPE',
             choices: ['PLAN', 'APPLY', 'DESTROY'],
-            desciption: 'Select The Build Type'
+            description: 'Select The Build Type'
         )
     } 
     environment{
