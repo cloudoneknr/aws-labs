@@ -21,7 +21,7 @@ pipeline {
     stages {
         stage('Terraform Workspace') {
             steps {
-                sh '''s
+                sh '''
                     ${C_PATH}/terraform version
                     ${C_PATH}/tfenv list
                     ${C_PATH}/tfenv use 1.3.1
