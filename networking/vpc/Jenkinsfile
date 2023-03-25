@@ -2,8 +2,9 @@ pipeline {
     agent any
     parameters {
         choice(
-            name: 'BUILD_TYPE'
-            choices: ['PLAN', 'APPLY', 'DESTROY']
+            name: 'BUILD_TYPE',
+            choices: ['PLAN', 'APPLY', 'DESTROY'],
+            desciption: 'Select The Build Type'
         )
     } 
     environment{
