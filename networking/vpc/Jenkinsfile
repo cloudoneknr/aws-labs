@@ -34,7 +34,7 @@ pipeline {
                     ${C_PATH}/terraform workspace select ${WORKSPACE_NAME}
                     else
                     echo "Workspace ${WORKSPACE_NAME} does not exist, creating it"
-                    ${C_PATH}terraform workspace new ${WORKSPACE_NAME}
+                    ${C_PATH}/terraform workspace new ${WORKSPACE_NAME}
                     fi
                 '''
             }
