@@ -1,5 +1,11 @@
 pipeline {
-    agent any 
+    agent any
+    parameters {
+        choice(
+            name: 'BUILD_TYPE'
+            choices: ['PLAN', 'APPLY', 'DESTROY']
+        )
+    } 
     environment{
         AWS_DEFAULT_REGION='us-east-1'
         AWS_PROJECT_HOME='/Users/nrkodari/git-repos/aws-labs'
@@ -30,7 +36,7 @@ pipeline {
             steps {
                 sh '''
                     cd ${AWS_PROJECT_HOME}/networking/vpc
-                    ${C_PATH}/terraform destroy -auto-approve
+                    ${C_PATH}/terraform ${params.BUIL_TYPE} -auto-approve
                 '''
             }
         }
