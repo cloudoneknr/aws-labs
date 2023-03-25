@@ -10,12 +10,12 @@ pipeline {
     environment{
         AWS_DEFAULT_REGION='us-east-1'
         AWS_PROJECT_HOME='/Users/nrkodari/git-repos/aws-labs'
-        C_PATH='/usr/local/bin/'
+        C_PATH='/usr/local/bin'
     }
     stages {
         stage('Terraform plan') {
             when {
-                expression { params.BUILD_TYPE == 'plan'}
+                expression { params.BUILD_TYPE == 'plan' }
             }
             steps {
                 sh '''
@@ -30,7 +30,7 @@ pipeline {
         }
         stage('Terraform apply') {
             when {
-                expression { params.BUILD_TYPE == 'apply'}
+                expression { params.BUILD_TYPE == 'apply' }
             }
             steps {
                 sh '''
@@ -45,7 +45,7 @@ pipeline {
         }
                 stage('Terraform destroy') {
             when {
-                expression { params.BUILD_TYPE == 'destroy'}
+                expression { params.BUILD_TYPE == 'destroy' }
             }
             steps {
                 sh '''
